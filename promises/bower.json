@@ -1,0 +1,11 @@
+{
+  "name": "promises",
+  "version": "0.1.0",
+  "dependencies": {
+    "angular": "~1.2.x",
+    "jquery": "~1.x",
+    "angular-route": "~1.2.x",
+    "angular-touch": "~1.2.x",
+    "ng-slide.and.push": "*"
+  }
+}

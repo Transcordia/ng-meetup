@@ -1,0 +1,171 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+}
+
+button, a {
+    outline: 0;
+    overflow: visible;
+    cursor: pointer;
+    border: 0;
+    background-color: transparent;
+}
+
+ul, li {
+    list-style-type: none;
+}
+
+body {
+    width: 100%;
+    color: #000;
+    font: 16pt Arial, sans-serif;
+    background-color: #fff;
+}
+
+
+#header {
+    background-color: #2b7;
+    height: 50px;
+}
+
+/*  Navigation  */
+
+.spmenu {
+    background-color: #eee;
+}
+
+.spmenu-left {
+    border-right-color: #666;
+}
+
+.spmenu h3 {
+    background-color: #d0d0d0;
+}
+
+#menu {
+    border-radius: 4px;
+    overflow: hidden;
+    text-align: center;
+}
+
+#menu > ul {
+    list-style-type: none;
+}
+
+#menu > ul > li {
+    display: block;
+}
+
+#menu > ul > li > a {
+    border-bottom: 1px solid #999;
+    color: #444;
+    display: block;
+    font-size: .85rem;
+    font-weight: 500;
+    height: 50px;
+    letter-spacing: .125rem;
+    line-height: 50px;
+    text-transform: uppercase;
+    transition: all .1s ease;
+    text-decoration: none;
+}
+
+#menu > ul > li > a:hover {
+    background-color: #d0d0d0;
+    cursor: pointer;
+}
+
+/*  Header */
+
+#header h1 {
+    display: block;
+    text-align: center;
+    color: #fff;
+    line-height: 50px;
+}
+
+#wrapper {
+    width: 90%;
+    padding: 0 5%;
+    margin-top: 15px;
+}
+
+.burger {
+    position: absolute;
+    /*background-color: black;*/
+    top: 5px;
+    left: 10px;
+    width: 30px;
+    height: 40px;
+}
+
+.burger span, .burger span:before, .burger span:after {
+    cursor: pointer;
+    border-radius: 1px;
+    height: 5px;
+    width: 35px;
+    background: white;
+    position: absolute;
+    display: block;
+    content: '';
+}
+.burger span:before {
+    top: -10px;
+}
+.burger span:after {
+    bottom: -10px;
+}
+
+/* Animate the burger */
+.burger span, .burger span:before, .burger span:after {
+    -webkit-transition: all 750ms ease-in-out;
+    -moz-transition: all 750ms ease-in-out;
+    -o-transition: all 750ms ease-in-out;
+    transition: all 750ms ease-in-out;
+}
+
+.burger.active span {
+    background-color: transparent;
+}
+
+.burger.active span:before, .burger.active span:after {
+    top: 0;
+    background-color: #94111c;
+}
+
+.burger.active span:before {
+    /*transform*/
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.burger.active span:after {
+    /*transform*/
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+
+label {
+    display: block;
+}

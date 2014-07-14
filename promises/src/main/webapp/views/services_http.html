@@ -1,0 +1,27 @@
+<div ng-controller="ServicesHttpController">
+    <h1>Services with $http</h1>
+    <form ng-submit="submit(weather.location)">
+        <label>
+            Zip Code:
+            <input type="text" ng-model="weather.location"/>
+            <input type="submit"/>
+        </label>
+    </form>
+
+    <label>
+        Location: <span>{{weather.placename}}</span>
+    </label>
+    <label>
+        Latitude: <span>{{weather.lat | number:5 }}</span>
+    </label>
+    <label>
+        Longitude: <span>{{weather.lng | number:5 }}</span>
+    </label>
+
+    <div>
+        <strong>Current Temperature: {{weather.currentTemp | number:0 }}</strong>
+    </div>
+    <div>
+        <strong>Temperature Last Year: {{weather.lastYearTemp | number:0 }}</strong>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Promises Demo</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <link rel='stylesheet' type='text/css' href='lib/ng-slide.and.push/styles/slide.and.push.css' />
+    <link rel='stylesheet' type='text/css' href='css/default.css' />
+</head>
+
+<body ng-app="promisesDemo">
+
+<button class="burger" ng-push-menu="menu" ><span></span></button>
+
+<ng-slide-push-menu id="menu" position="left">
+    <h3>Menu</h3>
+    <ul>
+        <li><a href="#/delay">Delay</a></li>
+        <li><a href="#/countdown">Countdown</a></li>
+        <li><a href="#/simple_callback">Simple Callback</a></li>
+        <li><a href="#/complex_callback">Complex Callback</a></li>
+        <li><a href="#/services_blocking">Blocking Services</a></li>
+        <li><a href="#/services_http">Services w/ $http</a></li>
+        <li><a href="#/services_promises">Services w/ Promises</a></li>
+        <li><a href="#/unnested_promises">Unnested Promises</a></li>
+    </ul>
+</ng-slide-push-menu>
+
+<div id="all">
+    <div id="header">
+        <h1>Promises Demo</h1>
+    </div>
+
+    <div id="wrapper">
+        <div ng-view></div>
+    </div>
+</div>
+
+<script src="lib/jquery/dist/jquery.js"></script>
+<script src="lib/angular/angular.js"></script>
+<script src="lib/angular-route/angular-route.js"></script>
+<script src="lib/angular-touch/angular-touch.js"></script>
+<script src="lib/ng-slide.and.push/scripts/slide.and.push.js"></script>
+<script src="js/location.js"></script>
+<script src="js/weather.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
