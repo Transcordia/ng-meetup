@@ -1,0 +1,22 @@
+{
+  "name": "services",
+  "version": "0.1.0",
+  "homepage": "https://github.com/Transcordia/ng-meetup/services",
+  "authors": [
+    "jcook <jcook@transcordia.com>"
+  ],
+  "description": "Example usages of AngularJS services",
+  "license": "Public Domain",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.23",
+    "angular-mocks": "~1.2.23"
+  }
+}
