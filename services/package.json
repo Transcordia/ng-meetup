@@ -7,6 +7,7 @@
     "grunt-karma": "~0.8.3"
   },
   "dependencies": {
+    "jasmine": "^2.0.1",
     "karma-jasmine": "^0.1.5",
     "karma-phantomjs-launcher": "^0.1.4"
   }
