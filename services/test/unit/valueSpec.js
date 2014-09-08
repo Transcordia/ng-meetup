@@ -1,6 +1,5 @@
-'use strict';
-
 describe( 'Value service', function () {
+    'use strict';
 
     beforeEach( function () {
         angular.module( 'test', [] )
@@ -8,7 +7,7 @@ describe( 'Value service', function () {
             .value( 'val_number', 42 )
             .value( 'val_object', {name : 'fred'} )
             .value( 'val_function', function ( incr ) {
-                return incr + 1
+                return incr + 1;
             } );
         module( 'test' );
     } );

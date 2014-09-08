@@ -1,14 +1,14 @@
 {
-  "name": "ng-meetup-services",
-  "version": "0.1.0",
-  "devDependencies": {
-    "grunt": "~0.4.5",
-    "grunt-contrib-jshint": "~0.10.0",
-    "grunt-karma": "~0.8.3"
-  },
-  "dependencies": {
-    "jasmine": "^2.0.1",
-    "karma-jasmine": "^0.1.5",
-    "karma-phantomjs-launcher": "^0.1.4"
-  }
+    "name" : "ng-meetup-services",
+    "version" : "0.1.0",
+    "devDependencies" : {
+        "grunt" : "~0.4.5",
+        "grunt-contrib-jshint" : "~0.10.0",
+        "grunt-karma" : "~0.8.3"
+    },
+    "dependencies" : {
+        "jasmine" : "~2.0.1",
+        "karma-jasmine" : "~0.1.5",
+        "karma-phantomjs-launcher" : "~0.1.4"
+    }
 }

@@ -1,7 +1,5 @@
-'use strict';
-
-
 describe( 'A simple factory service', function () {
+    'use strict';
 
     beforeEach( function () {
         angular.module( 'test', [] )
@@ -11,7 +9,7 @@ describe( 'A simple factory service', function () {
                     circ_area : function(r) {
                         return this.PI * r * r;
                     }
-                }
+                };
             } );
         module( 'test' );
     } );
@@ -36,7 +34,7 @@ describe( 'A factory service', function () {
                     circ_area : function(r) {
                         return PI * r * r;
                     }
-                }
+                };
             } );
         module( 'test' );
     } );

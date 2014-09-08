@@ -1,6 +1,5 @@
-'use strict';
-
 describe( 'A decorator', function () {
+    'use strict';
 
     beforeEach( function () {
         angular.module( 'test', [] )
@@ -11,7 +10,7 @@ describe( 'A decorator', function () {
                     circ_area : function(r) {
                         return PI * r * r;
                     }
-                }
+                };
             } );
         module( 'test' );
     } );

@@ -1,6 +1,5 @@
-'use strict';
-
 describe( 'Constant service', function () {
+    'use strict';
 
     beforeEach( function () {
         angular.module( 'test', [] )
@@ -8,7 +7,7 @@ describe( 'Constant service', function () {
             .constant( 'const_number', 42 )
             .constant( 'const_object', {name : 'fred'} )
             .constant( 'const_function', function ( incr ) {
-                return incr + 1
+                return incr + 1;
             } );
         module( 'test' );
     } );

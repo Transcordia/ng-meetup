@@ -1,6 +1,7 @@
 module.exports = function ( grunt ) {
 
     grunt.loadNpmTasks( 'grunt-karma');
+    grunt.loadNpmTasks( 'grunt-contrib-jshint' );
 
     grunt.initConfig( {
         pkg : grunt.file.readJSON( 'package.json' ),
@@ -9,8 +10,15 @@ module.exports = function ( grunt ) {
             unit : {
                 configFile : 'karma.conf.js'
             }
+        },
+
+        jshint : {
+            files : ['Gruntfile.js', 'test/**/*.js'],
+            options : {
+                jshintrc : '.jshintrc'
+            }
         }
     } );
 
-    grunt.registerTask( 'default', ['karma'] );
+    grunt.registerTask( 'default', ['jshint', 'karma'] );
 };

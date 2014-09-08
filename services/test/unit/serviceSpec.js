@@ -1,6 +1,5 @@
-'use strict';
-
 describe( 'A service service', function () {
+    'use strict';
 
     beforeEach( function () {
         angular.module( 'test', [] )
@@ -9,7 +8,7 @@ describe( 'A service service', function () {
 
                 this.circ_area = function(r) {
                     return PI * r * r;
-                }
+                };
             } );
         module( 'test' );
     } );

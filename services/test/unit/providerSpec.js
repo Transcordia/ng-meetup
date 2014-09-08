@@ -1,6 +1,6 @@
-'use strict';
-
 describe( 'A provider service', function () {
+
+    'use strict';
 
     it( 'requires a $get function', function () {
         angular.module( 'testfail', [] ).

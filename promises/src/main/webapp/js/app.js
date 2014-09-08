@@ -305,6 +305,9 @@ app.controller( 'UnnestedPromisesController', [
         $scope.weather = {};
 
         $scope.submit = function ( location ) {
+
+            var loc;
+
             $scope.weather = {
                 location : location
             };
@@ -318,7 +321,7 @@ app.controller( 'UnnestedPromisesController', [
             };
 
             var current = function ( loc ) {
-                weatherService.currentTemp( loc.lat, loc.lng )
+                return weatherService.currentTemp( loc.lat, loc.lng )
                     .then( function ( result ) {
                         $scope.weather.currentTemp = result;
                     } );
@@ -329,7 +332,11 @@ app.controller( 'UnnestedPromisesController', [
                 weatherService.lastYearTemp( loc.lat, loc.lng )
                     .then( function ( result ) {
                         $scope.weather.lastYearTemp = result;
-                    } );
+                    })
+                    .catch(function(error) {
+
+                });
+
                 return loc;
             };
 
@@ -342,7 +349,8 @@ app.controller( 'UnnestedPromisesController', [
                 .then( current )
                 .then( prior )
                 .catch( error );
-        }
+
+            };
     }
 ] );
 
