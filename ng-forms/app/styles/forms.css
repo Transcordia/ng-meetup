@@ -1,0 +1,29 @@
+
+.validatableForm .ng-valid.ng-dirty {
+    border: solid green 1px;
+    padding: 5px;
+}
+
+.validatableForm .ng-invalid.ng-dirty {
+    border: solid red 1px;
+    padding: 5px;
+}
+
+
+/*These styles make the select dropdown have an initial placeholder value that avoids selection*/
+select option {
+    color: black;
+}
+
+select option:first-child {
+    color: grey;
+}
+
+/*select.empty {*/
+    /*color: grey;*/
+/*}*/
+
+/* Hidden placeholder */
+select option[disabled]:first-child {
+    display: none;
+}

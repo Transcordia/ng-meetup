@@ -1,0 +1,34 @@
+<div>
+    <h4>Basic Form Example</h4>
+
+    <form role="form" name="myForm" novalidate="novalidate">
+        <input type="text" ng-model="user.firstLastName"  name="firstLastName"
+               placeholder="Enter Name">
+    </form>
+
+    <h3>Form Information</h3>
+
+    <div class="well well-sm">
+        <div class="row">
+            <div class="col-md-4">
+                <h5>User Bindings:</h5>
+                <pre ng-bind="user | json"></pre>
+            </div>
+
+            <div class="col-md-4">
+                <h5>Form State:</h5>
+                <p><b>Valid:</b> {{myForm.$valid}}</p>
+                <p><b>Pristine:</b> {{myForm.$pristine}}</p>
+            </div>
+
+            <div class="col-md-4">
+                <h5>Name Element Info</h5>
+                <p><b>Name:</b> {{myForm.firstLastName.$name}}</p>
+                <p><b>Model Value:</b> {{myForm.firstLastName.$modelValue}}</p>
+                <p><b>View Value:</b> {{myForm.firstLastName.$viewValue}}</p>
+                <p><b>Valid:</b> {{myForm.firstLastName.$valid}}</p>
+                <p><b>Pristine:</b> {{myForm.firstLastName.$pristine}}</p>
+            </div>
+        </div>
+    </div>
+</div>

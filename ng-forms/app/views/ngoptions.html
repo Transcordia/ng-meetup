@@ -1,0 +1,73 @@
+<div>
+    <h4>ngOptions Directive Example</h4>
+
+    <div>
+        <form role="form" name="userForm" novalidate="novalidate">
+
+            <!--Dropdown Select-->
+            <div class="form-group">
+                <label for="favFood">
+                    Favorite Food: value = object, label = name
+                    <a ng-href="#" class="glyphicon glyphicon-info-sign" ng-click="showDetails('favFood')"></a>
+                </label>
+                <select ng-model="user.favFood" id="favFood" name="favFood"
+                        class="form-control"
+                        ng-options="food.name for food in formData.foods track by food.id">
+                    <option value="" selected disabled>Please select a food</option>
+                </select>
+
+                <label for="favFood2">
+                    Favorite Food 2: value = id, label = name
+                    <a ng-href="#" class="glyphicon glyphicon-info-sign" ng-click="showDetails('favFood2')"></a>
+                </label>
+                <select ng-model="user.favFood2" id="favFood2" name="favFood2"
+                        class="form-control"
+                        ng-options="food.id as food.name for food in formData.foods">
+                    <option value="" selected disabled>Please select a food</option>
+                </select>
+
+                <label for="favFood3">
+                Favorite Food 3: value = object, label = name, grouped by foodGroup
+                <a ng-href="#" class="glyphicon glyphicon-info-sign" ng-click="showDetails('favFood3')"></a>
+                </label>
+                <select ng-model="user.favFood3" id="favFood3" name="favFood3"
+                        class="form-control"
+                        ng-options="food.name group by food.foodGroup for food in formData.foods">
+                    <option value="" selected disabled>Please select a food</option>
+                </select>
+            </div>
+        </form>
+    </div>
+
+    <h3>Form Information</h3>
+
+    <div class="well well-sm">
+        <div class="row">
+            <div class="col-md-5">
+                <h5>User Bindings:</h5>
+                <pre ng-bind="user | json"></pre>
+
+            </div>
+            <div class="col-md-2">
+                <h5>Form State:</h5>
+
+                <p><b>Valid:</b> {{userForm.$valid}}</p>
+
+                <p><b>Pristine:</b> {{userForm.$pristine}}</p>
+            </div>
+            <div class="col-md-5">
+                <h5>Form Element Info</h5>
+
+                <p><b>Name:</b> {{infoElement.$name}}</p>
+
+                <p><b>Model Value:</b> {{infoElement.$modelValue}}</p>
+
+                <p><b>View Value:</b> {{infoElement.$viewValue}}</p>
+
+                <p><b>Valid:</b> {{infoElement.$valid}}</p>
+
+                <p><b>Pristine:</b> {{infoElement.$pristine}}</p>
+            </div>
+        </div>
+    </div>
+</div>
