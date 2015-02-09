@@ -1,0 +1,95 @@
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+body {
+    padding: 0;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 730px;
+    }
+}
+
+/* I want the main container to fill the whole height of the window, nothing more. */
+html, body {
+    height: 100%;
+}
+
+.fill {
+    min-height: 100%;
+    height: 100%;
+}
+
+
+/* Splash screen is centered on the screen (v and h) */
+
+.splash {
+    min-height: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.splash > img {
+    width: 50%;
+}
+
+.splash > p {
+    width: 50%;
+    text-align: center;
+    padding: 2em 0 40% 0;
+    font-style: italic;
+}
+
+/* Main Page layout */
+
+.page-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-main > img {
+    padding: 10% 0;
+    width: 30%;
+}
+
+.page-main > p {
+    width: 50%;
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+
+.page-groups .navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.page-groups .navbar .left {
+    padding-left: 15px;
+}
+
+.page-groups .navbar .center {
+    flex: 1 1 auto;
+    text-align: center;
+}
+
+.page-groups .navbar .right {
+    padding-right: 15px;
+}
+
+.page-groups .row {
+    margin-top: 75px;
+    list-style: none;
+}

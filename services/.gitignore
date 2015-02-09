@@ -1,6 +1,0 @@
-# Created by .gitignore support plugin (hsz.mobi)
-
-node_modules
-bower_components
-.idea
-services.iml
