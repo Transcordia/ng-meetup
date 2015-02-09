@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="960px" height="648px" viewBox="0 0 960 648" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.2.2 (9983) - http://www.bohemiancoding.com/sketch -->
+    <title>BlameRave Logo</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+            <feGaussianBlur stdDeviation="1.5" in="shadowOffsetInner1" result="shadowBlurInner1"></feGaussianBlur>
+            <feComposite in="shadowBlurInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.35 0" in="shadowInnerInner1" type="matrix" result="shadowMatrixInner1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+                <feMergeNode in="shadowMatrixInner1"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="BlameRave-Logo" sketch:type="MSLayerGroup" transform="translate(-26.000000, 0.000000)">
+            <text id="B-ame" fill="white" filter="url(#filter-1)" sketch:type="MSTextLayer" font-family="Lucida Grande" font-size="288" font-weight="bold">
+                <tspan x="0" y="379" fill="#4A4A4A">B</tspan>
+                <tspan x="181.40625" y="379" font-size="200" fill="#4A4A4A"> </tspan>
+                <tspan x="247.324219" y="379" fill="#4A4A4A">ame</tspan>
+            </text>
+            <path d="M164.58152,0.283159532 C156.229443,5.7946976 149.330712,107.62565 149.330712,115.926938 C149.330712,122.993277 157.04641,127.473266 160.320701,127.567695 C182.737538,128.214188 197.533221,128.349759 197.533221,128.349759 L198.229657,379 L229.300431,379 L228.603995,128.214186 C228.603995,128.214186 258.848138,128.214188 264.653203,128.214186 C270.458268,128.214184 277.000001,119.77903 277,115.135741 C276.999999,110.492452 268.634607,4.8453234 261.532269,0.368786916 C254.429932,-4.10774957 246.356813,95.8216279 246.356813,95.8216279 L229.057716,95.8216279 C229.057716,95.8216279 221.385909,0.393176057 213.688254,0.263750658 C205.990599,0.134325258 198.229657,95.3032968 198.229657,95.3032968 L180.583374,95.3032968 C180.583374,95.3032968 172.933597,-5.22837854 164.58152,0.283159532 Z" id="Pitchfork" fill="#4A4A4A" sketch:type="MSShapeGroup"></path>
+            <text id="Rave" sketch:type="MSTextLayer" font-family="Lucida Grande" font-size="288" font-weight="bold" fill="#4A4A4A">
+                <tspan x="295" y="644">Rave</tspan>
+            </text>
+            <g id="Halo" transform="translate(651.000000, 411.000000)" fill="#4A4A4A" sketch:type="MSShapeGroup">
+                <path d="M14.5141674,49.2301355 C-42.5849004,2.33507529 88.2205496,0.211060585 98.0924479,0.211060757 C107.964346,0.211060929 231.603551,2.97726067 181.835762,48.3262457 C219.567736,6.4035663 -30.038589,7.17962274 14.5141674,49.2301355 Z" id="Path-2"></path>
+                <path d="M14.6076102,49.0727055 C14.6076102,49.0727055 0.333848371,38.4358937 14.5126822,30.6967296 C50.9260504,52.5800543 153.432372,48.3327991 180.799922,30.6967296 C192.846746,38.8562071 182.741665,46.7907538 181.782256,48.3327991 C146.670091,65.9335884 53.5313382,69.1854623 14.6076102,49.0727055 Z" id="Path-3"></path>
+            </g>
+        </g>
+    </g>
+</svg>
