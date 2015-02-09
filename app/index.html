@@ -23,13 +23,14 @@
 <![endif]-->
 
 <div class="container fill">
-    <div class="splash" ng-if="showSplash" ng-cloak>
-        <img src="images/BlameRave%20Logo.svg" />
-        <p>
-            The app that tells you how your children and pets behave when you're not around.
-        </p>
+    <div ui-view class="fill">
+        <div class="splash">
+            <img src="images/BlameRave%20Logo.svg" />
+            <p>
+                The app that tells you how your children and pets behave when you're not around.
+            </p>
+        </div>
     </div>
-    <div ng-view class="fill"></div>
 </div>
 
 <!-- build:js(.) scripts/vendor.js -->
@@ -37,7 +38,7 @@
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/ui-router/release/angular-ui-router.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
@@ -45,7 +46,9 @@
 <script src="scripts/app.js"></script>
 <script src="scripts/controllers/main.js"></script>
 <script src="scripts/controllers/manage.js"></script>
-<script src="scripts/controllers/manage-list.js"></script>
+<script src="scripts/controllers/manage-header.js"></script>
+<script src="scripts/controllers/manage-groups.js"></script>
+<script src="scripts/controllers/manage-members.js"></script>
 <script src="scripts/services/server.js"></script>
 <!-- endbuild -->
 </body>

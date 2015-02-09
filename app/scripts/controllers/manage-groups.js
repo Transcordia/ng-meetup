@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc function
- * @name ngRouterApp.controller:MainCtrl
+ * @name ngRouterApp.controller:ManageCtrl
  * @description
- * # MainCtrl
+ * # ManageCtrl
  * Controller of the ngRouterApp
  */
 angular.module( 'ngRouterApp' )
-    .controller( 'ManageCtrl', ['$scope', 'groups',
-        function ( $scope, groups ) {
+    .controller( 'ManageGroupsCtrl', ['groups',
+        function ( groups ) {
             this.groups = groups;
         }
     ] );

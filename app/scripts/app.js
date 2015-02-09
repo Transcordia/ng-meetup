@@ -9,64 +9,120 @@
  * Main module of the application.
  */
 angular
-    .module( 'ngRouterApp', [ 'ngRoute' ] )
-    .config( ['$routeProvider',
-        function ( $routeProvider, brServer ) {
-            $routeProvider
-                .when( '/', {
-                    templateUrl : 'views/main.html',
-                    controllerAs: 'main',
+    .module( 'ngRouterApp', ['ui.router'] )
+    .config( ['$stateProvider', '$urlRouterProvider',
+        function ( $stateProvider, $urlRouterProvider ) {
+            $urlRouterProvider.when( '', '/' );
+            $urlRouterProvider.otherwise( '/' );
+            $stateProvider
+                .state( 'app', {
+                    url : '/',
+                    views : {
+                        '' : {
+                            templateUrl : 'views/main.html'
+                        }
+                    },
+                    controllerAs : 'main',
                     controller : 'MainCtrl',
                     resolve : {
                         config : ['appService', function ( appService ) {
+                            console.log( 'Returning promise from app' );
                             return appService.init();
                         }]
                     }
                 } )
-                .when( '/manage', {
-                    templateUrl : 'views/manage.html',
-                    controllerAs: 'manage',
-                    controller : 'ManageCtrl',
+                .state( 'app.manage', {
+                    abstract : true,
+                    views : {
+                        'header@app.manage' : {
+                            templateUrl : 'views/manage-header.html',
+                            controllerAs : 'header',
+                            controller : 'ManageHeaderCtrl'
+                        },
+                        '@' : {
+                            templateUrl : 'views/manage.html'
+                        }
+                    },
                     resolve : {
                         groups : ['appService', function ( appService ) {
+                            console.log( 'Returning promise from app.manage' );
                             return appService.getGroups();
                         }]
                     }
                 } )
-                .when( '/manage/:id', {
-                    templateUrl : 'views/manage-list.html',
-                    controllerAs: 'manageList',
-                    controller : 'ManageListCtrl',
-                    resolve : {
-                        group : ['appService', '$route', function ( appService, $route ) {
-                            var params = $route.current.params;
-                            var id = params.id;
-                            var groups = appService.getGroups();
-                            return groups.then( function ( data ) {
-                                for (var i = 0, c = data.length; i < c; i++) {
-                                    if (data[i].id === id) return data[i];
-                                }
-                                return null;
-                            } );
-                        }],
-                        members : ['appService', '$route', function ( appService, $route ) {
-                            var params = $route.current.params;
-                            return appService.getMembers(params.id);
-                        }]
+                .state( 'app.manage.groups', {
+                    url : '^/manage',
+                    views : {
+                        'content' : {
+                            templateUrl : 'views/manage-groups.html',
+                            controllerAs : 'manageGroups',
+                            controller : 'ManageGroupsCtrl'
+                        }
                     }
                 } )
-                .otherwise( {
-                    redirectTo : '/'
+                .state( 'app.manage.members', {
+                    url : '^/manage/:id',
+                    views : {
+                        'content' : {
+                            templateUrl : 'views/manage-members.html',
+                            controllerAs : 'manageMembers',
+                            controller : 'ManageMembersCtrl'
+                        }
+                    },
+                    resolve : {
+                        members : ['appService', '$stateParams', function ( appService, $stateParams ) {
+                            return appService.getMembers( $stateParams.id );
+                        }]
+                    }
                 } );
         }
     ] )
-    .run(['$rootScope', function($root) {
-        $root.$on('$routeChangeStart', function(e, curr, prev) {
-            if (!prev && curr.$$route && curr.$$route.resolve) {
-                $root.showSplash = true;
-            }
-        });
-        $root.$on('$routeChangeSuccess', function(e, curr, prev) {
-            $root.showSplash = false;
-        });
-    }]);
+    .run( ['$state', '$rootScope', '$log', function ( $state, $rootScope, $log ) {
+        $rootScope.$on( '$stateChangeStart',
+            function ( event, toState, toParams, fromState, fromParams ) {
+                if ( console.time && console.timeEnd ) {
+                    console.time( 'State change -> ' + toState.name );
+                }
+                //$log.info( 'State change start:', fromState, '->', toState );
+            } );
+
+        $rootScope.$on( '$viewContentLoading',
+            function ( event, viewConfig ) {
+                if ( console.time && console.timeEnd ) {
+                    console.time( 'view load' );
+                }
+                //$log.info( 'View content loading:', viewConfig );
+            } );
+
+        $rootScope.$on( '$stateNotFound',
+            function ( event, unfoundState, fromState, fromParams ) {
+                $log.info( 'Unfound state:', unfoundState );
+                if ( console.time && console.timeEnd ) {
+                    console.timeEnd( 'State change -> ' + toState.name );
+                }
+            } );
+
+        $rootScope.$on( '$stateChangeError',
+            function ( event, toState, toParams, fromState, fromParams, error ) {
+                $log.info( 'State change error:', error );
+                if ( console.time && console.timeEnd ) {
+                    console.timeEnd( 'State change -> ' + toState.name );
+                }
+            } );
+
+        $rootScope.$on( '$viewContentLoaded',
+            function ( event ) {
+                $log.info( 'View content loaded:', event );
+                if ( console.time && console.timeEnd ) {
+                    console.timeEnd( 'view load' );
+                }
+            } );
+
+        $rootScope.$on( '$stateChangeSuccess',
+            function ( event, toState, toParams, fromState, fromParams ) {
+                $log.info( 'State change success:', fromState, '->', toState );
+                if ( console.time && console.timeEnd ) {
+                    console.timeEnd( 'State change -> ' + toState.name );
+                }
+            } );
+    }] );

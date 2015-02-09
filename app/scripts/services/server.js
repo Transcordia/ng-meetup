@@ -15,6 +15,7 @@ angular.module( 'ngRouterApp' )
             if ( isNaN( delay ) ) delay = 0;
             var deferred = $q.defer();
             $timeout( function () {
+                console.log( 'Promise resolved', payload );
                 deferred.resolve( payload );
             }, delay );
             return deferred.promise;
