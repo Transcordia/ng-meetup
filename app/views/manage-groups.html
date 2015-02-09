@@ -1,0 +1,7 @@
+<div class="list-group">
+    <a ui-sref="app.manage.members({id: group.id})" class="list-group-item"
+       ng-repeat="group in manageGroups.groups">
+        <span class="pull-right"><i class="fa fa-angle-right"></i></span>
+        {{group.name}}
+    </a>
+</div>

@@ -9,12 +9,18 @@
  */
 angular.module( 'ngRouterApp' )
     .service( 'appService', ['$timeout', '$q', function ( $timeout, $q ) {
-        var initPromise, getGroupsPromise;
+        var initPromise;
+        var groups = [
+            {id : '34D', name : 'AM Classroom'},
+            {id : 'A5C', name : 'PM Classroom'},
+            {id : 'K3P', name : 'After School Care'}
+        ];
 
         function defer( payload, delay ) {
             if ( isNaN( delay ) ) delay = 0;
             var deferred = $q.defer();
             $timeout( function () {
+                console.log( 'Promise resolved', payload );
                 deferred.resolve( payload );
             }, delay );
             return deferred.promise;
@@ -33,15 +39,7 @@ angular.module( 'ngRouterApp' )
             },
 
             getGroups : function () {
-                if ( getGroupsPromise == null ) {
-                    getGroupsPromise = defer( [
-                            {id : '34D', name : 'AM Classroom'},
-                            {id : 'A5C', name : 'PM Classroom'},
-                            {id : 'K3P', name : 'After School Care'}
-                        ]
-                    );
-                }
-                return getGroupsPromise;
+                return defer( groups.slice( 0 ) );
             },
 
             getMembers : function () {
@@ -56,6 +54,18 @@ angular.module( 'ngRouterApp' )
                         {id : '103', name : 'Helen Hunt'}
                     ]
                 );
+            },
+
+            addGroup : function ( name ) {
+                var deferred = $q.defer();
+                $timeout( function () {
+                    groups.push( {
+                        id : Math.random().toString( 36 ).substring( 3 ),
+                        name : name
+                    } );
+                    deferred.resolve();
+                }, 0 );
+                return deferred.promise;
             }
         }
     }] );

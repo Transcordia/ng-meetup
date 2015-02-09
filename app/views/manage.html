@@ -1,23 +1,10 @@
 <div class="page-groups">
 
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="left">
-            <a class="btn btn-default navbar-btn" href="#/"><i class="fa fa-angle-left"></i> Back</a>
-        </div>
-        <div class="center navbar-brand">My Groups</div>
-        <div class="right">
-            <a class="btn btn-default navbar-btn" href="#/"><i class="fa fa-plus"></i></a>
-        </div>
-    </nav>
+    <div ui-view="header"></div>
 
     <div class="row">
         <div class="col-xs-12">
-            <div class="list-group">
-                <a ng-href="#/manage/{{group.id}}" class="list-group-item" ng-repeat="group in manage.groups">
-                    <span class="pull-right"><i class="fa fa-angle-right"></i></span>
-                    {{group.name}}
-                </a>
-            </div>
+            <div ui-view="content"></div>
         </div>
     </div>
 </div>
