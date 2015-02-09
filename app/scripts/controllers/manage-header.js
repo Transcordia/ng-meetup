@@ -12,6 +12,9 @@ angular.module( 'ngRouterApp' )
         function ( $scope, $state, groups ) {
             var ctrl = this;
 
+            var addFunc = function () {
+            };
+
             function getGroupById(id) {
                 for ( var i = 0, c = groups.length; i < c; i++ ) {
                     if (groups[i].id === id) return groups[i].name;
@@ -33,6 +36,9 @@ angular.module( 'ngRouterApp' )
                             ctrl.title = 'My Groups';
                             ctrl.priorState = function() {
                                 $state.go( 'app' );
+                            };
+                            ctrl.addFunc = function () {
+                                $state.go( 'app.manage.groups.add' );
                             };
                             break;
                     }

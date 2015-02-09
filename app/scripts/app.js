@@ -9,9 +9,31 @@
  * Main module of the application.
  */
 angular
-    .module( 'ngRouterApp', ['ui.router'] )
-    .config( ['$stateProvider', '$urlRouterProvider',
-        function ( $stateProvider, $urlRouterProvider ) {
+    .module( 'ngRouterApp', ['ui.router', 'ui.bootstrap', 'ui.bootstrap.modal'] )
+    .provider( 'modalState', function ( $stateProvider ) {
+        var provider = this;
+        this.$get = function () {
+            return provider;
+        };
+        this.state = function ( stateName, options ) {
+            $stateProvider.state( stateName, {
+                url : options.url || '',
+                onEnter : ['$stateParams', '$state', '$modal',
+                    function ( $stateParams, $state, $modal ) {
+                        $modal.open( {
+                            templateUrl : options.templateUrl,
+                            controller : options.controller,
+                            constrollerAs: options.controllerAs
+                        } ).result.finally( function () {
+                                $state.go( '^', {}, {reload: true} );
+                            } );
+                    }
+                ]
+            } );
+        };
+    } )
+    .config( ['$stateProvider', '$urlRouterProvider', 'modalStateProvider',
+        function ( $stateProvider, $urlRouterProvider, modalStateProvider ) {
             $urlRouterProvider.when( '', '/' );
             $urlRouterProvider.otherwise( '/' );
             $stateProvider
@@ -75,6 +97,11 @@ angular
                         }]
                     }
                 } );
+            modalStateProvider.state( 'app.manage.groups.add', {
+                templateUrl : 'views/manage-groups-add.html',
+                controllerAs : 'addGroup',
+                controller : 'ManageGroupAddCtrl'
+            } );
         }
     ] )
     .run( ['$state', '$rootScope', '$log', function ( $state, $rootScope, $log ) {
