@@ -11,7 +11,7 @@
 angular
     .module( 'ngRouterApp', [ 'ngRoute' ] )
     .config( ['$routeProvider',
-        function ( $routeProvider, brServer ) {
+        function ( $routeProvider ) {
             $routeProvider
                 .when( '/', {
                     templateUrl : 'views/main.html',
